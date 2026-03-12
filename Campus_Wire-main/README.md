@@ -17,9 +17,6 @@ A newer release with:
 * Improved profiles & activity feed
 * Recent Profile Activity
 
-Visit the development branch here:
-
-https://github.com/ToyeshGupta/Campus_Wire/tree/version2 
 
 (or click **branch → version2** above)
 
