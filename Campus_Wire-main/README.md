@@ -19,7 +19,7 @@ A newer release with:
 
 Visit the development branch here:
 
-https://github.com/SrizaGoel/Campus_Wire/tree/version2 
+https://github.com/ToyeshGupta/Campus_Wire/tree/version2 
 
 (or click **branch → version2** above)
 
@@ -42,5 +42,5 @@ http://localhost:4000
 
 ## Author
 
-**Sriza Goel**
+**Toyesh Gupta**
 
