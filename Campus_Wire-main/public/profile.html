@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Buzz – Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="festival.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .profile-page {
+            background: var(--fest-card);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid var(--fest-border);
+            margin-top: 20px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--fest-border);
+        }
+
+        .profile-avatar {
+            font-size: 100px;
+            color: var(--fest-primary);
+            position: relative;
+        }
+
+        .profile-avatar::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border: 3px solid var(--fest-card);
+            border-radius: 50%;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--fest-text);
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--fest-primary), var(--fest-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-dept {
+            font-size: 1.3rem;
+            color: var(--fest-text);
+            opacity: 0.8;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .profile-stats {
+            display: flex;
+            gap: 40px;
+            margin: 25px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px 25px;
+            background: var(--fest-sidebar-bg);
+            border-radius: 15px;
+            border: 1px solid var(--fest-border);
+            min-width: 120px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--fest-primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--fest-text);
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        .follow-btn {
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, var(--fest-primary), var(--fest-secondary));
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .follow-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .follow-btn.following {
+            background: linear-gradient(135deg, #e11d48, #f43f5e) !important;
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .detail-card {
+            background: var(--fest-sidebar-bg);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--fest-border);
+        }
+
+        .detail-card h3 {
+            color: var(--fest-primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-card h3 i {
+            font-size: 1.1rem;
+        }
+
+        .warning-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: #fef2f2;
+            color: #dc2626;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #fecaca;
+        }
+
+        .user-posts {
+            margin-top: 40px;
+        }
+
+        .posts-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--fest-text);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--fest-border);
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .profile-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .profile-name {
+                font-size: 2rem;
+            }
+            
+            .profile-page {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation (same as main app) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-comments"></i>
+                <span>Campus Buzz</span>
+            </div>
+            <div class="nav-links">
+                <a href="/index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-user"></i> My Profile
+                </a>
+                <a href="#" id="logoutBtn" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <div class="profile-page">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="profile-info">
+                    <div id="profileName" class="profile-name">Loading...</div>
+                    <div id="profileDept" class="profile-dept">Loading...</div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span id="followerCount" class="stat-number">0</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="followingCount" class="stat-number">0</span>
+                            <span class="stat-label">Following</span>
+                        </div>
+                        <div class="stat-item">
+                            <span id="warningCount" class="stat-number">0</span>
+                            <span class="stat-label">Warnings</span>
+                        </div>
+                    </div>
+
+                    <button id="followBtn" class="follow-btn">Follow</button>
+                </div>
+            </div>
+
+            <div class="profile-details">
+                <div class="detail-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Academic Info</h3>
+                    <div id="academicInfo">Loading academic information...</div>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Member Since</h3>
+                    <div id="memberSince">Loading join date...</div>
+                </div>
+                
+                <div class="detail-card">
+                    <h3><i class="fas fa-star"></i> Campus Status</h3>
+                    <div id="campusStatus">Loading status...</div>
+                </div>
+            </div>
+
+            <div class="user-posts">
+                <div class="posts-header">
+                    <i class="fas fa-comments"></i> Recent Activity
+                </div>
+                <div id="userPostsList">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading user posts...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
